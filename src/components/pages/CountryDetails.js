@@ -25,33 +25,33 @@ function CountryDetails(){
       }
     return(
         <>
-            {!loading && <section id="showCase">
-                <img src={singleCountryDetail[0]?.coatOfArms?.png} alt="" />
+            {!loading && <section id="showCase" aria-label="Image showcase area">
+                <img src={singleCountryDetail[0]?.coatOfArms?.png} alt="Coat of arms of the country" />
             </section>
             }
 
-            {!loading && <secion id="country-details">
+            {!loading && <secion id="country-details" aria-label="Country Details">
                 <div className="column">
                     <div className="flag">
-                        <img src={singleCountryDetail[0]?.flags?.png} alt="" />
-                        <p>{singleCountryDetail[0].name?.common}</p>
+                        <img src={singleCountryDetail[0]?.flags?.png} alt="Country flag" />
+                        <p data-testid="commonname-value">{singleCountryDetail[0].name?.common}</p>
                     </div>
                     <div className="details">
                         <div className="row card mb-3">
                             <div >
-                                <p className="heading">Official Name</p>
-                                <p>{singleCountryDetail[0]?.name?.official}</p>
+                                <p data-testid="officialname-heading"className="heading">Official Name</p>
+                                <p data-testid="officialname-value">{singleCountryDetail[0]?.name?.official}</p>
                             </div>
                         </div>
                         <div className="row mb-3">
                             <div className="px-3 card">
-                             <p className="heading">Capital</p>
-                             <p>{singleCountryDetail[0]?.capital}</p>
+                             <p data-testid="capital-heading" className="heading">Capital</p>
+                             <p data-testid="capital-value">{singleCountryDetail[0]?.capital}</p>
                             </div>
                             <div className="px-3 card">
-                                <p className="heading">Continents</p>
+                                <p data-testid="continent-heading" className="heading">Continents</p>
                             {singleCountryDetail[0]?.continents?.map((item) => {
-                                return (<p>{item}  </p>)
+                                return (<p data-testid="continent-value">{item}  </p>)
                             })
                             }
                             </div>
@@ -59,22 +59,22 @@ function CountryDetails(){
                         </div>
                         <div className="row card mb-3 ">
                             <div>
-                                <p className="heading">Official Languages</p>
+                                <p data-testid="language-heading" className="heading">Official Languages</p>
                                 {Object.entries(singleCountryDetail[0]?.languages).map(([key, value]) => {
-                                    return (<p>{value}</p>)
+                                    return (<p data-testid="language-value" >{value}</p>)
                                 })}
                             </div>
                         </div>
                         <div className="row  mb-3">
                             <div className="card px-3">
-                                <p className="heading">Currency</p>
+                                <p data-testid="currency-heading" className="heading">Currency</p>
                                 {Object.entries(singleCountryDetail[0]?.currencies)?.map(([key, value]) => {
-                                return (<p>{value.name}</p>)
+                                return (<p data-testid="currency-value" >{value.name}</p>)
                             })}
                             </div>
                             <div className="card px-3">
-                                <p className="heading">Time Zone</p>
-                                <p>{singleCountryDetail[0].timezones}</p>
+                                <p data-testid="timezone-heading" className="heading">Time Zone</p>
+                                <p data-testid="timezone-value" >{singleCountryDetail[0].timezones}</p>
                             </div>
                         </div>
                     </div>
